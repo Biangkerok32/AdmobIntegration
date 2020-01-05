@@ -11,6 +11,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import java.lang.annotation.Native;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btnBanner, btnInterstitial, btnNative, btnRewarded;
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRewarded = findViewById(R.id.btnRewarded);
         btnBanner.setOnClickListener(this);
         btnInterstitial.setOnClickListener(this);
+        btnNative.setOnClickListener(this);
+        btnRewarded.setOnClickListener(this);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -44,6 +48,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btnInterstitial:
                 startActivity(new Intent(MainActivity.this, InterstitialAdActivity.class));
+                break;
+
+            case R.id.btnNative:
+                startActivity(new Intent(MainActivity.this, NativeAdsActivity.class));
+                break;
+
+            case R.id.btnRewarded:
+                startActivity(new Intent(MainActivity.this, RewardedAdsActivity.class));
+
                 break;
 
         }
