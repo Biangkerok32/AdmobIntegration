@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnNative = findViewById(R.id.btnNative);
         btnRewarded = findViewById(R.id.btnRewarded);
         btnBanner.setOnClickListener(this);
+        btnInterstitial.setOnClickListener(this);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -39,6 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnBanner:
 
                 startActivity(new Intent(MainActivity.this, BannerActivity.class));
+                break;
+
+            case R.id.btnInterstitial:
+                startActivity(new Intent(MainActivity.this, InterstitialAdActivity.class));
                 break;
 
         }
